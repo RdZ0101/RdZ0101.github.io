@@ -1,33 +1,38 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const viewProjectsBtn = document.getElementById("view-projects-btn");
+    const prevCardBtn = document.getElementById("prev-card-btn");
+    const nextCardBtn = document.getElementById("next-card-btn");
+
+    viewProjectsBtn.addEventListener("click", scrollToProjects);
+    prevCardBtn.addEventListener("click", prevCard);
+    nextCardBtn.addEventListener("click", nextCard);
+});
+
 function scrollToProjects() {
-    document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
-}
-
-let currentIndex = 0;
-const cards = document.querySelectorAll('.carousel-card');
-
-function showCard(index) {
-    cards.forEach((card, i) => {
-        card.classList.remove('active', 'next', 'prev');
-        if (i === index) {
-            card.classList.add('active');
-        } else if (i === (index + 1) % cards.length) {
-            card.classList.add('next');
-        } else if (i === (index - 1 + cards.length) % cards.length) {
-            card.classList.add('prev');
-        }
-        card.style.transform = `translateX(${(i - index) * 130}%) scale(${i === index ? 1 : 0.8})`;
-        card.style.opacity = i === index ? 1 : 0.2;
-    });
-}
-
-function nextCard() {
-    currentIndex = (currentIndex + 1) % cards.length;
-    showCard(currentIndex);
+    const projectsSection = document.getElementById("projects");
+    projectsSection.scrollIntoView({ behavior: "smooth" });
 }
 
 function prevCard() {
-    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-    showCard(currentIndex);
+    const carousel = document.querySelector(".carousel");
+    const activeCard = carousel.querySelector(".carousel-card.active");
+    const prevCard = activeCard.previousElementSibling || carousel.lastElementChild;
+
+    activeCard.classList.remove("active");
+    activeCard.classList.add("next");
+
+    prevCard.classList.remove("prev");
+    prevCard.classList.add("active");
 }
 
-showCard(currentIndex);
+function nextCard() {
+    const carousel = document.querySelector(".carousel");
+    const activeCard = carousel.querySelector(".carousel-card.active");
+    const nextCard = activeCard.nextElementSibling || carousel.firstElementChild;
+
+    activeCard.classList.remove("active");
+    activeCard.classList.add("prev");
+
+    nextCard.classList.remove("next");
+    nextCard.classList.add("active");
+}

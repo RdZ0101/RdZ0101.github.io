@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruchika De Zoysa's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navigation">
+        <ul>
+            <li><a href="index.html"><img src="https://via.placeholder.com/10" alt="Home button"></a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <section id="projects" class="projects">
+        <h1>My Projects</h1>
+        <p>I consider myself a jack of all trades, therefore i have projects covering a vast spectrum not limited to computer programs.</p>
+        <button id="view-projects-btn">View Projects</button>
+    </section>
+    <section class="container" id="projects">
+        <div class="carousel">
+            <div class="carousel-card">
+                <h3>Inference Engine</h3>
+                <img src="https://via.placeholder.com/150" alt="Inference engine">
+                <p><strong>Objective:</strong> A script that performs Inference on a Knowledgebase using Truth tables, backward and forward chaining, DPLL.</p>
+                <div class="language">Python</div>
+            </div>
+            <div class="carousel-card active">
+                <h3>TSAR_23 – Team Swinburne Racing</h3>
+                <img src="https://via.placeholder.com/150" alt="TSAR_23">
+                <p><strong>Role:</strong> Developing a ROS2-based autonomous steering system.</p>
+                <div class="language">Python, ROS2</div>
+            </div>
+            <div class="carousel-card next">
+                <h3>Robot Navigation System</h3>
+                <img src="https://via.placeholder.com/150" alt="Robot Navigation system">
+                <p><strong>Description:</strong> An intelligent agent that navigates a maze using BFS, DFS, GBF, A*, Limited Depth DFS, and Bi-directional A* algorithms to search for a path through the maze.</p>
+                <div class="language">Python, Tkinter</div>
+            </div>
+            <div class="carousel-card">
+                <h3>Tasty Burgers</h3>
+                <img src="https://via.placeholder.com/150" alt="Tasty Burgers">
+                <p><strong>Description:</strong> A POS system for a burger shop to manage orders.</p>
+                <div class="language">C++</div>
+            </div>
+            
+            <button class="arrow arrow-left" id="prev-card-btn">&#10094;</button>
+            <button class="arrow arrow-right" id="next-card-btn">&#10095;</button>
+        </div>
+    </section>
+    <footer class="footer">
+        <p>&copy; 2024 Ruchika De Zoysa. All Rights Reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
