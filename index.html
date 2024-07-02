@@ -9,21 +9,28 @@
 <body>
     <nav class="navigation">
         <ul>
-            <li><a href="index.html"><img src="https://via.placeholder.com/10" alt="Home button"></a></li>
+            <li class="home-btn"><a href="index.html"><img src="/Images/Logo.jpg" height="35px" alt="Home button"></a></li>
             <li><a href="about.html">About Me</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
-    <section id="intro" class="intro">
-        <h1>Hi, I am</h1>
-        <h2>Ruchika De Zoysa.</h2>
-        <h2>I build tech for the real world.</h2>
-        <p>I'm a penultimate year computer science student majoring in AI. I'm fascinated by technology and its impact on the world. I strive to solve real-world problems through code.</p>
-        <button id="view-projects-btn">My Projects</button>
-    </section>
+    <div class="Intro">
+        <img src="Images/Homepagebackground.jpg" alt="Background image" id="backgroundIMG" class="backgroundIMG">
+        <div class="IntroTxt">
+            <h1>Hi, I am</h1>
+            <h2>Ruchika De Zoysa</h2>
+            <h3>I build tech for the real world.</h3>
+            <p>I'm a penultimate year computer science student majoring in AI. I'm fascinated by technology and its impact on the world. I strive to solve real-world problems through code.</p> 
+            <button id="view-projects-btn"> <a href="projects.html">Projects</a></button>
+        </div>
+    </div>
     <footer class="footer">
         <p>&copy; 2024 Ruchika De Zoysa. All Rights Reserved.</p>
+        <div class="social-links"></div>
+            <a href="mailto:ruchika.dezoysa@gmail.com" target="_blank"><img src="Images/gmail-logo.png" alt="Gmail logo"></a>
+            <a href="https://github.com/RdZ0101" target="_blank"><img src="Images/github-logo.png" alt="GitHub logo"></a>
+        </div>
     </footer>
     <script src="script.js"></script>
 </body>
