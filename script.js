@@ -1,38 +1,36 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const viewProjectsBtn = document.getElementById("view-projects-btn");
-    const prevCardBtn = document.getElementById("prev-card-btn");
-    const nextCardBtn = document.getElementById("next-card-btn");
+document.addEventListener("DOMContentLoaded", function() {
+    const carouselCards = document.querySelectorAll('.carousel-card');
+    const nextButton = document.getElementById('next-card-btn');
+    const prevButton = document.getElementById('prev-card-btn');
+    let currentIndex = 0;
 
-    viewProjectsBtn.addEventListener("click", scrollToProjects);
-    prevCardBtn.addEventListener("click", prevCard);
-    nextCardBtn.addEventListener("click", nextCard);
+    function updateCarousel() {
+        carouselCards.forEach((card, index) => {
+            card.classList.remove('active', 'prev', 'next');
+            if (index === currentIndex) {
+                card.classList.add('active');
+            } else if (index === (currentIndex - 1 + carouselCards.length) % carouselCards.length) {
+                card.classList.add('prev');
+            } else if (index === (currentIndex + 1) % carouselCards.length) {
+                card.classList.add('next');
+            }
+        });
+    }
+
+    nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % carouselCards.length;
+        updateCarousel();
+    });
+
+    prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + carouselCards.length) % carouselCards.length;
+        updateCarousel();
+    });
+
+    updateCarousel(); // Initial call to set up the carousel
+
+    // Ensure visibility of the carousel cards
+    carouselCards.forEach(card => {
+        card.style.visibility = 'visible';
+    });
 });
-
-function scrollToProjects() {
-    const projectsSection = document.getElementById("projects");
-    projectsSection.scrollIntoView({ behavior: "smooth" });
-}
-
-function prevCard() {
-    const carousel = document.querySelector(".carousel");
-    const activeCard = carousel.querySelector(".carousel-card.active");
-    const prevCard = activeCard.previousElementSibling || carousel.lastElementChild;
-
-    activeCard.classList.remove("active");
-    activeCard.classList.add("next");
-
-    prevCard.classList.remove("prev");
-    prevCard.classList.add("active");
-}
-
-function nextCard() {
-    const carousel = document.querySelector(".carousel");
-    const activeCard = carousel.querySelector(".carousel-card.active");
-    const nextCard = activeCard.nextElementSibling || carousel.firstElementChild;
-
-    activeCard.classList.remove("active");
-    activeCard.classList.add("prev");
-
-    nextCard.classList.remove("next");
-    nextCard.classList.add("active");
-}
